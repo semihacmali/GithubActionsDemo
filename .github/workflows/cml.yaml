@@ -14,5 +14,12 @@ jobs:
           # Your ML workflow goes here
           pip install -r gereklikutuphaneler.txt
           python kalphastaligi.py
-          echo "Model Metrikleri"
-          cat metrikler.txt
+          
+          echo "## Model Metrikleri" >> rapor.md
+          cat metrikler.txt >> rapor.md
+
+          echo "## Veri Görselleri" >> rapor.md
+          cml-publish ozellik_onem.png --md >> rapor.md
+          # cml-publish  ******** --md >> rapor.md
+
+          cml-send-comment rapor.md
