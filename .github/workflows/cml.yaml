@@ -15,5 +15,4 @@ jobs:
           python kalphastaligi.py
 
           cat metrikler.txt >> report.md
-          echo "![](./ozellik_onem.png)" >> report.md
           cml comment create report.md
