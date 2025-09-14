@@ -46,7 +46,7 @@ X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random
 ######## MODEL #########
 ########################
 
-model = RandomForestClassifier(n_estimators=3, max_depth=2, random_state=seed)
+model = RandomForestClassifier(n_estimators=2, max_depth=2, random_state=seed)
 model.fit(X_train,y_train)
 
 # Egitim dogruluk skoru
@@ -85,6 +85,7 @@ ax.set_title('Random forest\nözellik önemi', fontsize = title_fs)
 plt.tight_layout()
 plt.savefig("ozellik_onem.png",dpi=120) 
 plt.close()
+
 
 
 
