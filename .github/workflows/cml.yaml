@@ -1,25 +1,19 @@
-name: random-forest-hastalik-teshisi
+name: model-training
 on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
-    # optionally use a convenient Ubuntu LTS + DVC + CML image
-    container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
       - uses: actions/checkout@v3
-      - name: cml-run
+      - uses: actions/setup-python@v4
+      - uses: iterative/setup-cml@v1
+      - name: Train model
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Your ML workflow goes here
           pip install -r gereklikutuphaneler.txt
           python kalphastaligi.py
-          
-          echo "## Model Metrikleri" >> rapor.md
-          cat metrikler.txt >> rapor.md
 
-          echo "## Veri Görselleri" >> rapor.md
-          echo "![Özellik Önem](./ozellik_onem.png)" >> rapor.md
-          # echo "************" >> rapor.md
-
-          cml comment create rapor.md
+          cat metrikler.txt >> report.md
+          echo "![](./ozellik_onem.png)" >> report.md
+          cml comment create report.md
