@@ -22,4 +22,4 @@ jobs:
           cml-publish ozellik_onem.png --md >> rapor.md
           # cml-publish  ******** --md >> rapor.md
 
-          cml-send-comment rapor.md
+          cml comment create rapor.md
