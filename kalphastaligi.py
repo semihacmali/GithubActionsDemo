@@ -79,12 +79,13 @@ sns.set(style="whitegrid")
 
 ax = sns.barplot(x="importance", y="feature", data=feature_df)
 ax.set_xlabel('Önem',fontsize = axis_fs) 
-ax.set_ylabel('Özellike', fontsize = axis_fs)#ylabel
+ax.set_ylabel('Özellikler', fontsize = axis_fs)#ylabel
 ax.set_title('Random forest\nözellik önemi', fontsize = title_fs)
 
 plt.tight_layout()
 plt.savefig("ozellik_onem.png",dpi=120) 
 plt.close()
+
 
 
 
